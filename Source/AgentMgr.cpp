@@ -260,6 +260,14 @@ namespace GW {
         bool SendDialog(uint32_t dialog_id) {
             return UI::SendUIMessage(UI::UIMessage::kSendDialog, (void*)dialog_id);
         }
+        bool SendDialogRaw(uint32_t dialog_id)
+        {
+            if (!RetSendDialog) {
+                return false;
+            }
+            RetSendDialog(dialog_id);
+            return true;
+        }
 
         AgentArray* GetAgentArray() {
             auto* agents = (AgentArray*)AgentArrayPtr;
