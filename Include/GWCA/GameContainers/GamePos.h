@@ -118,6 +118,12 @@ namespace GW {
             y = static_cast<float>(_y);
         }
 
+        constexpr Vec2f(GW::Vec3f vec)
+        { 
+            x = vec.x;
+            y = vec.y;
+        }
+
         Vec2f() = default;
     };
 
