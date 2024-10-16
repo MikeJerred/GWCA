@@ -281,6 +281,7 @@ namespace GW {
             kHideAgentNameTag           = 0x10000000 | 0x1A,
             kSetAgentNameTagAttribs     = 0x10000000 | 0x1B, // wparam = AgentNameTagInfo*
             kChangeTarget               = 0x10000000 | 0x20, // wparam = ChangeTargetUIMsg*
+            kSpellCastInterrupted       = 0x10000000 | 0x26, // wparam = { uint32_t agent_id, uint32_t skill_id }
             kAgentStartCasting          = 0x10000000 | 0x27, // wparam = { uint32_t agent_id, uint32_t skill_id }
             kShowMapEntryMessage        = 0x10000000 | 0x29, // wparam = { wchar_t* title, wchar_t* subtitle }
             kSetCurrentPlayerData       = 0x10000000 | 0x2A, // fired after setting the worldcontext player name
@@ -294,6 +295,8 @@ namespace GW {
             kEffectAdd                  = 0x10000000 | 0x55, // wparam = {agent_id, GW::Effect*}
             kEffectRenew                = 0x10000000 | 0x56, // wparam = GW::Effect*
             kEffectRemove               = 0x10000000 | 0x57, // wparam = effect id
+            kPlayerQueueSkill           = 0x10000000 | 0x5B, // wparam = {uint32_t agent_id, uint32_t skill_id, uint32_t always0, uint32_t isStartOfSkill, uint32_t heroNumber } (heroNumber is 0 for player skills)
+            kSkillCooldownStart         = 0x10000000 | 0x5D, // wparam = {uint32_t agent_id, uint32_t skill_id }
             kUpdateSkillbar             = 0x10000000 | 0x5E, // wparam ={ uint32_t agent_id , ... }
             kSkillActivated             = 0x10000000 | 0x5b, // wparam ={ uint32_t agent_id , uint32_t skill_id }
             kTitleProgressUpdated       = 0x10000000 | 0x65, // wparam = title_id
